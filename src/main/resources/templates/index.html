@@ -1,0 +1,37 @@
+<html ng-app="taskManagerApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <title>AngularJS Task Manager</title>
+    <script data-require="angular.js@*" data-semver="1.5.8"
+            src="http://code.angularjs.org/1.5.8/angular.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+</head>
+<body>
+
+<div ng-controller="taskManagerController">
+    <h3>list all employees</h3>
+    <ul>
+        <li ng-repeat="x in employees">
+            <div>
+                <b>First Name:</b> {{x.firstname}}
+                <b>Last Name:</b> {{x.lastname}}
+            </div>
+        </li>
+    </ul>
+    <hr />
+
+    <h3>add a new employee</h3>
+    <div>
+        <form>
+            firstname: <input type="text" ng-model="employee.firstname" /><br />
+            lastname: <input type="text" ng-model="employee.lastname" /><br />
+            Gender: <input type="radio" ng-model="employee.gender" value="M" />male
+            <input type="radio" ng-model="employee.gender" value="F" />female<br />
+            <input type="submit" ng-click="save(employee)" value="Save" />
+        </form>
+        <pre>employee = {{employee | json}}</pre>
+    </div>
+</div>
+
+</body>
+</html>
